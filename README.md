@@ -8,7 +8,7 @@
 
 - Use Keyboard to Navigate whole page
 
-# Made with
+# Built with
 
 - HTML
 
