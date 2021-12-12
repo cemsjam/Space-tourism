@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
   return (
-    <main className="content grid">
+    <main className="main-home grid">
       <div>
         <h1 className="main-title">
           So, you want to travel to<span>Space</span>
@@ -16,9 +17,9 @@ const Home = () => {
           experience!{" "}
         </p>
       </div>
-      <a href="/" className="btn main-btn">
+      <Link to="/destinations" className="btn main-btn">
         Explore
-      </a>
+      </Link>
     </main>
   );
 };

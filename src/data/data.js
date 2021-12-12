@@ -1,4 +1,4 @@
-export const data = {
+export const data = { .destination-meta
   destinations: [
     {
       name: "Moon",

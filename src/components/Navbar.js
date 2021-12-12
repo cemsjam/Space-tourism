@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { data } from "../data/data";
 import logo from "../assets/shared/logo.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -7,6 +8,15 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  useEffect(() => {
+    if (activeIndex === 0) return (document.body.className = "home");
+    else {
+      return (document.body.className = Object.keys(data).filter(
+        (item, index) => item[activeIndex] === item[index + 1]
+      ));
+    }
+  }, [activeIndex]);
+  console.log(Object.keys(data), activeIndex);
   return (
     <>
       <header className="main-header">
@@ -25,11 +35,14 @@ const Navbar = () => {
         <nav className={`${isNavOpen ? "main-nav open" : "main-nav"}`}>
           <ul className="main-nav-list flex">
             <li
-              className="main-nav-list-item"
-              aria-selected={`${activeIndex === 0 ? "true" : "false"}`}
+              className={`${
+                activeIndex === 0
+                  ? "main-nav-list-item selected"
+                  : "main-nav-list-item"
+              }`}
             >
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="main-nav-link"
                 onClick={() => {
                   setActiveIndex(0);
@@ -39,19 +52,20 @@ const Navbar = () => {
                   00
                 </span>
                 Home
-              </a>
+              </Link>
             </li>
             {Object.keys(data).map((item, index) => {
               return (
                 <li
                   key={index}
-                  className="main-nav-list-item"
-                  aria-selected={`${
-                    activeIndex === index + 1 ? "true" : "false"
+                  className={`${
+                    activeIndex === index + 1
+                      ? "main-nav-list-item selected"
+                      : "main-nav-list-item"
                   }`}
                 >
-                  <a
-                    href="#"
+                  <Link
+                    to={`/${item}`}
                     className="main-nav-link"
                     onClick={() => {
                       setActiveIndex(index + 1);
@@ -61,7 +75,7 @@ const Navbar = () => {
                       index + 1
                     }`}</span>
                     {item}
-                  </a>
+                  </Link>
                 </li>
               );
             })}

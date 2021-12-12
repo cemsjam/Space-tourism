@@ -13,7 +13,7 @@
   color: hsl(var(--clr-white));
   font-size: 1.55rem;
   padding: 1rem;
-  position: fixed;
+  position: absolute;
   right: 0;
   z-index: var(--hamburger-zIndex);
   transition: 0.3s ease-in-out;
@@ -113,11 +113,11 @@
     transform-origin: left;
     transition: transform 0.3s ease-in-out;
   }
-  .main-nav-list-item[aria-selected="false"]:hover::after {
+  .main-nav-list-item:hover::after {
     transform: scale(1);
     transition: transform 0.3s ease-in-out, background 0.3s ease;
   }
-  .main-nav-list-item[aria-selected="true"]::after {
+  .selected::after {
     background-color: hsl(var(--clr-white));
     transform: scale(1);
   }

@@ -8,7 +8,7 @@
   --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
-  --fs-600: 1rem;
+  --fs-600: 1.25rem;
   --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
@@ -94,6 +94,10 @@ body {
   background-position: bottom center;
   background-image: url(./assets/home/background-home-mobile.jpg);
 }
+.destinations {
+  background-size: cover;
+  background-image: url(./assets/destination/background-destination-mobile.jpg);
+}
 .home > div {
   display: grid;
   grid-template-rows: min-content 1fr;
@@ -104,10 +108,16 @@ body {
     background-position: center center;
     background-image: url(./assets/home/background-home-tablet.jpg);
   }
+  .destinations {
+    background-image: url(./assets/destination/background-destination-tablet.jpg);
+  }
 }
 @media (min-width: 64em) {
   .home {
     background-image: url(./assets/home/background-home-desktop.jpg);
+  }
+  .destinations {
+    background-image: url(./assets/destination/background-destination-desktop.jpg);
   }
 }
 
@@ -191,4 +201,6 @@ select {
   user-select: none;
   display: inline-block;
   cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
